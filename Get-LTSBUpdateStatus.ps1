@@ -17,6 +17,7 @@ function Get-LTSBUpdateStatus {
 
     )
 
+    #Helper function from https://keithga.wordpress.com/2017/05/21/new-tool-get-the-latest-windows-10-cumulative-updates/
     Function Select-LatestUpdate {
       [CmdletBinding(SupportsShouldProcess=$True)]
       Param(
@@ -43,7 +44,7 @@ function Get-LTSBUpdateStatus {
   }
 
 
-    #Getting latest update number
+    #Getting latest update number - based on https://keithga.wordpress.com/2017/05/21/new-tool-get-the-latest-windows-10-cumulative-updates/
     $lastKBArticleRAW = Invoke-WebRequest -Uri "https://support.microsoft.com/app/content/api/content/asset/en-us/4000816" |
     Select-Object -ExpandProperty Content |
     ConvertFrom-Json |
